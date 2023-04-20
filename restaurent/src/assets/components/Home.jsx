@@ -12,6 +12,8 @@ const Home = () => {
 
     const menuData = useContext(Menus)
 
+
+    //make array from json data element 
     const uniqueList = [
         ...new Set(
             menuData.map((curElem) => {
@@ -21,7 +23,7 @@ const Home = () => {
         "All",
       ];
 
-      
+
     const [menu,setMenu]=useState(menuData)
     const [menuList , setMenuList] = useState(uniqueList)
 
