@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 
 import "./App.css";
-import { Button } from "flowbite-react";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 import Navbar from "./assets/components/Navbar";
 
+export const Menus = createContext([])
 
 function App() {
+
+  const menus = useLoaderData()
+  console.log(menus)
+
   return (
     <div className="App">
-     <Navbar />
+      <Menus.Provider value={menus}>
+     
      <Outlet />
+     </Menus.Provider>
     </div>
   );
 }

@@ -4,18 +4,19 @@ import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./assets/components/Home";
+import { getMenusData } from "./assets/components/getdata";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    loader: getMenusData,
+
     children: [
 
     {
       path: "/" ,
       element: <Home />,
-      loader: ()=>fetch('menu.json')
-
     }
   ]
 },
